@@ -18,8 +18,8 @@
                 }
             })();
 
-if (window.Ziggy && window.Ziggy.url.startsWith('http://')) {
-    window.Ziggy.url = window.Ziggy.url.replace('http://', 'https://');
+if (Ziggy && Ziggy.url.startsWith('http://')) {
+    Ziggy.url = Ziggy.url.replace('http://', 'https://');
 }
 
         </script>
