@@ -785,3 +785,11 @@ import { Head, Link } from '@inertiajs/vue3';
         <div class="h-14.5 hidden lg:block"></div>
     </div>
 </template>
+
+<script>
+export default {
+    mounted() {
+        Ziggy.url = Ziggy.url.replace('http://', 'https://');
+    }
+}
+</script>
