@@ -786,7 +786,7 @@ import { Head, Link } from '@inertiajs/vue3';
     </div>
 </template>
 
-<script>
+<script setup lang="ts">
 export default {
     mounted() {
         Ziggy.url = Ziggy.url.replace('http://', 'https://');
