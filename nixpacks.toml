@@ -183,6 +183,10 @@ http {
             include $!{nginx}/conf/fastcgi.conf;
 
             fastcgi_param PHP_VALUE "upload_max_filesize=30M \n post_max_size=35M";
+            fastcgi_param HTTPS $https if_not_empty;
+            fastcgi_param HTTP_X_FORWARDED_PROTO $scheme;
+            fastcgi_param HTTP_X_FORWARDED_HOST $host;
+            fastcgi_param HTTP_X_FORWARDED_FOR $proxy_add_x_forwarded_for;
         }
 
         location ~ /\.(?!well-known).* {
