@@ -48,7 +48,7 @@ class HandleInertiaRequests extends Middleware
             ],
             'ziggy' => [
                 ...(new Ziggy)->toArray(),
-                'location' => $request->url(),
+                'location' => str_replace('http://', 'https://', $request->url()), // opcional, se quiser forçar também aqui
             ],
         ];
     }
