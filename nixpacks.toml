@@ -21,6 +21,10 @@ cmd = '/assets/start.sh'
 "start.sh" = '''
 #!/bin/bash
 
+# Corrige permissões no runtime
+chown -R www-data:www-data /app/storage /app/bootstrap/cache /app/database
+chmod -R ug+rwX /app/storage /app/bootstrap/cache /app/database
+
 # Transform the nginx configuration
 node /assets/scripts/prestart.mjs /assets/nginx.template.conf /etc/nginx.conf
 
@@ -86,6 +90,8 @@ startsecs=0
 stopwaitsecs=3600
 stdout_logfile=/var/log/worker-laravel.log
 stderr_logfile=/var/log/worker-laravel.log
+user=www-data
+group=www-data
 '''
 
 "php-fpm.conf" = '''
