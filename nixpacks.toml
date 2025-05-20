@@ -13,7 +13,7 @@ cmds = [
     "chown -R www-data:www-data /app/storage /app/bootstrap/cache /app/database",
     "chmod -R ug+rwX /app/storage /app/bootstrap/cache /app/database",
     "chown -R www-data:www-data /app/public",
-    "chmod -R ug+rwX /app/public"
+    "chmod -R ug+rwX /app/public",
     "npm ci",
     "npm run build",
 
