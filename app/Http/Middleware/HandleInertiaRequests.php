@@ -39,6 +39,9 @@ class HandleInertiaRequests extends Middleware
     {
         [$message, $author] = str(Inspiring::quotes()->random())->explode('-');
 
+        $ziggy = (new Ziggy)->toArray();
+        $ziggy['url'] = str_replace('http://', 'https://', $ziggy['url']);
+
         return [
             ...parent::share($request),
             'name' => config('app.name'),
@@ -47,12 +50,7 @@ class HandleInertiaRequests extends Middleware
                 'user' => $request->user(),
             ],
             'ziggy' => [
-                ...array_replace(
-                    (new Ziggy)->toArray(),
-                    [
-                        'url' => str_replace('http://', 'https://', (new Ziggy)->toArray()['url']),
-                    ]
-                ),
+                ...$ziggy,
                 'location' => $request->url(),
             ],
         ];
