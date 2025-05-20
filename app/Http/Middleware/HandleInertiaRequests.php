@@ -47,7 +47,12 @@ class HandleInertiaRequests extends Middleware
                 'user' => $request->user(),
             ],
             'ziggy' => [
-                ...(new Ziggy)->toArray(),
+                ...array_replace(
+                    (new Ziggy)->toArray(),
+                    [
+                        'url' => str_replace('http://', 'https://', (new Ziggy)->toArray()['url']),
+                    ]
+                ),
                 'location' => $request->url(),
             ],
         ];
